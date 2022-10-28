@@ -1,7 +1,8 @@
 "use client";
 
+import clsx from "clsx";
 import Link from "next/link";
-import { usePathname, useSelectedLayoutSegments } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 type NavLinkProps = {
@@ -16,7 +17,10 @@ export default function NavLink({ children, href }: NavLinkProps) {
 
   return (
     <Link
-      className={`text-lg text-slate-800 ${isActive && "font-bold"}`}
+      className={clsx([
+        { ["font-bold underline text-purple-400"]: isActive },
+        "text-lg text-slate-800",
+      ])}
       href={href}
     >
       {children}
