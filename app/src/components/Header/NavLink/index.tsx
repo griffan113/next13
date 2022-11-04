@@ -20,6 +20,7 @@ export default function NavLink({ children, href }: NavLinkProps) {
       className={clsx([
         { ["font-bold underline text-purple-400"]: isActive },
         "text-lg text-slate-800",
+        "hover:underline",
       ])}
       href={href}
     >

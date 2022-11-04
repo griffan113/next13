@@ -1,5 +1,3 @@
-import { experimental_use as use } from "react";
-
 import { Book } from "../src/types/Book";
 
 async function getBooks(): Promise<Book[]> {
@@ -13,15 +11,16 @@ async function getBooks(): Promise<Book[]> {
 export default async function Books() {
   const books = await getBooks();
 
-  console.log(books);
-
   return (
     <main className="p-4 rounded-lg bg-gray-800">
       <h1 className="text-xl font-bold">Livros</h1>
       <div className="flex flex-col gap-2">
         {books.map((book) => (
-          <div key={book.name} className="flex flex-col gap-1">
-            <strong>{book.name}</strong>
+          <div
+            key={book.name}
+            className="flex flex-col gap-1 only-of-type:bg-black"
+          >
+            <p>{book.name}</p>
           </div>
         ))}
       </div>
